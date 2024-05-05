@@ -1,0 +1,15 @@
+# étape de build
+FROM node:21-slim as build-stage
+
+WORKDIR /usr/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 5173
+
+
+CMD ["npm", "run", "dev"]
